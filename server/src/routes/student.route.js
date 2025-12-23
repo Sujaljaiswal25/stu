@@ -7,8 +7,8 @@ import {
   updateStudent,
   deleteStudent,
 } from "../controllers/student.controller.js";
-import auth from "../middlewares/auth.middleware.js";
-import roleCheck from "../middlewares/role.middleware.js";
+import { auth } from "../middlewares/auth.middleware.js";
+import { roleCheck } from "../middlewares/role.middleware.js";
 
 const router = express.Router();
 

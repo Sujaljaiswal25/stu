@@ -17,4 +17,4 @@ const roleCheck = (...roles) => {
   };
 };
 
-export default roleCheck;
+export { roleCheck };
