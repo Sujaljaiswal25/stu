@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import authRoutes from "./routes/auth.route.js";
+import studentRoutes from "./routes/student.route.js";
 
 const app = express();
 
@@ -23,6 +25,16 @@ app.get("/", (req, res) => {
 // Health check
 app.get("/health", (req, res) => {
   res.json({ status: "OK" });
+});
+
+// API Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/students", studentRoutes);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: "Something went wrong!" });
 });
 
 export default app;
